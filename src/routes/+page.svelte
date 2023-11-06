@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { fly } from 'svelte/transition';
+	import { fly, scale } from 'svelte/transition';
 	import type { SwiperContainer } from 'swiper/element/bundle';
 	import type { SwiperOptions } from 'swiper/types';
 	import type { PageData } from './$types';
+	import { bounceInOut, circInOut, cubicInOut, elasticInOut, expoInOut, quadInOut, sineInOut } from 'svelte/easing';
 
 	export let data: PageData;
 
@@ -36,28 +37,34 @@
 	});
 </script>
 
-<div class="flex h-screen flex-row-reverse">
-	<div class="hidden w-14 shrink-0 items-center justify-between bg-slate-600 py-10 md:flex" style="writing-mode: vertical-lr">
+<div class="relative flex h-screen flex-row-reverse">
+	<aside
+		class="absolute right-0 top-0 z-20 hidden h-screen w-14 shrink-0 items-center justify-between bg-black/60 py-10 backdrop-blur-lg md:flex"
+		style="writing-mode: vertical-lr"
+	>
 		<div class="flex gap-7">
 			<a href="/">نمونه کار</a>
 			<a href="/">ارتباط با ما</a>
 		</div>
 
-		<a href="/">هاشم پروداکشن</a>
-	</div>
+		<a href="/" class="font-logo font-bold">فرادید</a>
+	</aside>
 
 	<div class="relative w-full min-w-0">
 		<swiper-container id="featured-slider" dir="ltr" bind:this={swiperContainer} init="false" class="h-screen">
-			{#each data.slides as slide}
+			{#each data.slides as slide, index}
 				<swiper-slide class="relative flex h-screen cursor-grab items-center justify-center">
 					<video playsinline muted loop autoplay src={slide.videoSrc} class="h-full w-full object-cover opacity-80" />
 
-					<a
-						href="/"
-						class="absolute mx-auto my-auto text-center text-9xl font-black tracking-wide text-white/40 transition-all duration-300 ease-in-out hover:tracking-widest hover:text-white"
-					>
-						{slide.text}
-					</a>
+					{#if index + 1 === currentPage}
+						<a
+							transition:scale={{ opacity: 0, start: 1.5, duration: 500, easing: circInOut }}
+							href="/"
+							class="absolute mx-auto my-auto whitespace-pre-line text-center text-6xl font-black tracking-wide text-white/40 transition-all duration-300 ease-in-out hover:tracking-widest hover:text-white sm:text-8xl md:pr-14 md:text-9xl"
+						>
+							{slide.text}
+						</a>
+					{/if}
 				</swiper-slide>
 			{/each}
 		</swiper-container>

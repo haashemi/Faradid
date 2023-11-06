@@ -14,7 +14,7 @@
 >
 	<div aria-hidden="true" class="w-10" />
 
-	<h1 class="text-xl font-bold">هاشم پروداکشن</h1>
+	<a href="/" class="font-logo text-3xl font-bold">فرادید</a>
 
 	<button on:click={() => (isNavbarOpen = !isNavbarOpen)} class="relative h-10 w-10">
 		{#if isNavbarOpen}
