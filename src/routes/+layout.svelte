@@ -8,8 +8,8 @@
 </script>
 
 <Header />
-<SideBar />
 
-<main>
+<main class="flex">
 	<slot />
+	<SideBar />
 </main>
