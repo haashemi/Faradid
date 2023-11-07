@@ -4,18 +4,17 @@
 	import CgMenuRight from 'svelte-icons-pack/cg/CgMenuRight';
 	import CgClose from 'svelte-icons-pack/cg/CgClose';
 	import { fly } from 'svelte/transition';
+	import { afterNavigate } from '$app/navigation';
 
 	let isNavbarOpen = false;
+
+	afterNavigate(() => (isNavbarOpen = false));
 </script>
 
 <header
 	class="fixed left-0 top-0 z-50 flex h-14 w-full items-center justify-between px-5 transition-colors duration-300 md:hidden
         {isNavbarOpen ? 'text-black' : 'text-white'}"
 >
-	<div aria-hidden="true" class="w-10" />
-
-	<a href="/" class="font-logo text-3xl font-bold">فرادید</a>
-
 	<button on:click={() => (isNavbarOpen = !isNavbarOpen)} class="relative h-10 w-10">
 		{#if isNavbarOpen}
 			<span transition:fly={{ x: -10 }} class="absolute left-0 top-0 p-1"><Icon size="30" src={CgClose} /></span>
@@ -23,6 +22,10 @@
 			<span transition:fly={{ x: -10 }} class="absolute left-0 top-0 p-1"><Icon size="30" src={CgMenuRight} /></span>
 		{/if}
 	</button>
+
+	<a href="/" class="font-logo text-3xl font-bold">فرادید</a>
+
+	<div aria-hidden="true" class="w-10" />
 </header>
 
 {#if isNavbarOpen}
@@ -32,7 +35,7 @@
 	>
 		<div role="button" tabindex="0" aria-hidden="true" class="h-full w-full" on:click={() => (isNavbarOpen = false)} />
 
-		<a href="/">نمونه کار</a>
+		<a href="/projects">نمونه کار</a>
 		<a href="/contact">ارتباط با ما</a>
 
 		<div role="button" tabindex="0" aria-hidden="true" class="h-full w-full" on:click={() => (isNavbarOpen = false)} />
