@@ -33,7 +33,7 @@
 		<div role="button" tabindex="0" aria-hidden="true" class="h-full w-full" on:click={() => (isNavbarOpen = false)} />
 
 		<a href="/">نمونه کار</a>
-		<a href="/">ارتباط با ما</a>
+		<a href="/contact">ارتباط با ما</a>
 
 		<div role="button" tabindex="0" aria-hidden="true" class="h-full w-full" on:click={() => (isNavbarOpen = false)} />
 	</navbar>
