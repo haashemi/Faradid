@@ -6,6 +6,6 @@
 
 	<div class="flex gap-10">
 		<a class="transition-[transform,opacity] duration-300 ease-in-out hover:translate-x-1 hover:opacity-60" href="/contact">ارتباط با ما</a>
-		<a class="transition-[transform,opacity] duration-300 ease-in-out hover:translate-x-1 hover:opacity-60" href="/">نمونه کار</a>
+		<a class="transition-[transform,opacity] duration-300 ease-in-out hover:translate-x-1 hover:opacity-60" href="/projects">نمونه کار</a>
 	</div>
 </aside>
