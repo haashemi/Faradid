@@ -1,8 +1,7 @@
 <script lang="ts">
 	//@ts-ignore
-	import Icon from 'svelte-icons-pack/Icon.svelte';
-	import CgMenuRight from 'svelte-icons-pack/cg/CgMenuRight';
-	import CgClose from 'svelte-icons-pack/cg/CgClose';
+	import { Icon } from 'svelte-icons-pack';
+	import { CgMenuRight, CgClose } from 'svelte-icons-pack/cg';
 	import { fly } from 'svelte/transition';
 	import { afterNavigate } from '$app/navigation';
 
