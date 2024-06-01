@@ -9,6 +9,10 @@
 
 <Header />
 
+<svelte:head>
+	<title>Faradid</title>
+</svelte:head>
+
 <main class="flex min-h-screen">
 	<SideBar />
 	<slot />
